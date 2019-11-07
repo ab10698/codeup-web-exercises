@@ -8,6 +8,9 @@ comment
     color: purple; /* single line comment */
     text-decoration: underline;
 }
+#centering {
+    text-align: center ;
+}
 h1 {
     text-align: center;
 }
