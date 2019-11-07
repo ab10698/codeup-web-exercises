@@ -8,3 +8,32 @@ comment
     color: purple; /* single line comment */
     text-decoration: underline;
 }
+h1 {
+    text-align: center;
+}
+h2 {
+    color: red;
+    text-decoration: underline;
+}
+body {
+    background-color: lightgray;
+}
+#technology {
+    background-image: url("../img/black.jpg");
+    background-size: 300px 200px;
+    background-repeat: no-repeat;
+
+}
+tr {
+    color: white;
+    outline-color: black;
+}
+ul {
+    list-style: lower-greek;
+}
+body {
+    font-family: "Apple SD Gothic Neo", serif;
+}
+table {
+    border: lightgray;
+}
