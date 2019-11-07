@@ -20,7 +20,7 @@ body {
 }
 #technology {
     background-image: url("../img/black.jpg");
-    background-size: 300px 200px;
+    background-size: cover;
     background-repeat: no-repeat;
 
 }
@@ -34,6 +34,20 @@ ul {
 body {
     font-family: "Apple SD Gothic Neo", serif;
 }
-table {
-    border: lightgray;
+table, td, tr {
+    border-style: groove;
+    border-width: 5px;
+    font-size: medium;
+}
+a:link {
+    color: blue;
+}
+a:visited {
+    color: red;
+}
+a:hover {
+    color: purple;
+}
+a:active {
+    color: green;
 }
