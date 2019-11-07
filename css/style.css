@@ -17,6 +17,7 @@ h2 {
 }
 body {
     background-color: lightgray;
+    font-family: "Apple SD Gothic Neo", serif;
 }
 #technology {
     background-image: url("../img/black.jpg");
@@ -30,9 +31,6 @@ tr {
 }
 ul {
     list-style: lower-greek;
-}
-body {
-    font-family: "Apple SD Gothic Neo", serif;
 }
 table, td, tr {
     border-style: groove;
