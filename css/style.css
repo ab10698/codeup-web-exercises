@@ -14,13 +14,12 @@ comment
 h1 {
     text-align: center;
 }
-h2 {
+h2, h3, h4, h5, h6 {
     color: red;
     text-decoration: underline;
 }
 body {
     background-color: lightgray;
-    font-family: "Apple SD Gothic Neo", serif;
 }
 #technology {
     background-image: url("../img/black.jpg");
@@ -33,7 +32,13 @@ tr {
     outline-color: black;
 }
 ul {
+    list-style: square;
+}
+ol {
     list-style: lower-greek;
+}
+body {
+    font-family: Papyrus;
 }
 table, td, tr {
     border-style: groove;
