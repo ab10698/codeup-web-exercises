@@ -17,26 +17,27 @@
  */
 
 
-var r = confirm("Would you like to enter a number?");
-if (r == true) {
-  var number = prompt("Please enter a number.");
-    if (number%2 == 0) {
-        alert("This number is even.");
-    } else if (number%2 !== 0) {
-        alert("This number is odd.");
-    }
-
-    if (number > 0) {
-        alert("This number is positive.");
-    } else if (number < 0) {
-        alert("This number is negative.");
-    } else {
-        alert("Are you sure that is a number?");
-    }
-
-} else {
-    alert  ("You pressed Cancel!");
-}
+// var r = confirm("Would you like to enter a number?");
+// if (r == true) {
+//   var number = prompt("Please enter a number.");
+//     if (number%2 == 0) {
+//         alert("This number is even.");
+//     } else if (number%2 !== 0) {
+//         alert("This number is odd.");
+//     }
+//
+//
+//     if (number > 0) {
+//         alert("This number is positive.");
+//     } else if (number < 0) {
+//         alert("This number is negative.");
+//     } else {
+//         alert("Are you sure that is a number?");
+//     }
+//     alert(number + 100);
+// } else {
+//     alert  ("You pressed Cancel!");
+// }
 
 
 /* ########################################################################## */
@@ -59,6 +60,32 @@ if (r == true) {
  * console.logging the function's return value
  */
 
+// var color = 'green';
+//
+// function analyzeColor(color) {
+//     if (color == 'blue') {
+//         return "blue like the sky.";
+//     } else if (color == 'red') {
+//         return "red like an apple.";
+//     } else if (color == 'orange') {
+//         return "orange like.. well.. an orange.";
+//     } else if (color == 'yellow') {
+//         return "yellow like a dandelion.";
+//     } else if (color == 'green') {
+//         return "green like grass";
+//     } else if (color == 'indigo') {
+//         return "indigo like the flight and travel company 'Indigo'.";
+//     } else if (color == 'violet') {
+//         return "Violet like the flowers";
+//     } else {
+//         return "I dont think that color is in my vocab chief."
+//     }
+// }
+//
+// console.log(analyzeColor(color));
+
+
+
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -72,10 +99,63 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
+
+// function analyzeColor(randomColor) {
+//     if (randomColor == 'blue') {
+//         return "blue like the sky.";
+//     } else if (randomColor == 'red') {
+//         return "red like an apple.";
+//     } else if (randomColor == 'orange') {
+//         return "orange like.. well.. an orange.";
+//     } else if (randomColor == 'yellow') {
+//         return "yellow like a dandelion.";
+//     } else if (randomColor == 'green') {
+//         return "green like grass";
+//     } else if (randomColor == 'indigo') {
+//         return "indigo like the flight and travel company 'Indigo'.";
+//     } else if (randomColor == 'violet') {
+//         return "Violet like the flowers";
+//     } else {
+//         return "I dont think that color is in my vocab chief."
+//     }
+// }
+//
+// console.log(analyzeColor(randomColor));
+
 /**
  * TODO:
  * Refactor your above function to use a switch-case statement
  */
+
+// function analyzeColor(randomColor) {
+//     switch (randomColor) {
+//         case 'blue':
+//             return "blue like the sky.";
+//             break;
+//         case  'red':
+//             return "red like an apple.";
+//             break;
+//         case 'orange' :
+//             return "orange like.. well.. an orange.";
+//             break;
+//         case 'yellow' :
+//             return "yellow like a dandelion.";
+//             break;
+//         case 'green' :
+//             return "green like grass";
+//             break;
+//         case 'indigo' :
+//             return "indigo like the flight and travel company 'Indigo'.";
+//             break;
+//         case 'violet' :
+//             return "Violet like the flowers";
+//             break;
+//         default :
+//             return "I dont think that color is in my vocab chief."
+//             break;
+//     }
+// }
+// console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
@@ -83,6 +163,38 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+// var response = prompt("Enter a color");
+//
+// function analyzeColor(response) {
+//     switch (response) {
+//         case 'blue':
+//             return "blue like the sky.";
+//             break;
+//         case  'red':
+//             return "red like an apple.";
+//             break;
+//         case 'orange' :
+//             return "orange like.. well.. an orange.";
+//             break;
+//         case 'yellow' :
+//             return "yellow like a dandelion.";
+//             break;
+//         case 'green' :
+//             return "green like grass";
+//             break;
+//         case 'indigo' :
+//             return "indigo like the flight and travel company 'Indigo'.";
+//             break;
+//         case 'violet' :
+//             return "Violet like the flowers";
+//             break;
+//         default :
+//             return "I dont think that color is in my vocab chief."
+//             break;
+//     }
+// }
+// console.log(analyzeColor(response));
 
 /* ########################################################################## */
 
@@ -106,6 +218,27 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
+// var total = prompt("Total amount?");
+// var lucky = 0;
+// function calculateTotal() {
+//     if (lucky == 0) {
+//         return(lucky + "? Sorry but you did not win a discount.");
+//     } else if (lucky == 1) {
+//         return(total * .90);
+//     } else if (lucky == 2) {
+//         return(total * .75);
+//     } else if (lucky == 3) {
+//         return(total * .65);
+//     } else if (lucky == 4) {
+//         return(total * .50);
+//     } else if (lucky == 5) {
+//         return("A 5! Congratulation on winning! Everything you purchased is free! ");
+//     } else {
+//         return ("I will need to contact support real quick...");
+//     }
+// }
+// console.log(calculateTotal(lucky));
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 6.
@@ -114,4 +247,25 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+var luckyNumber = Math.floor(Math.random() * 6);
+
+var total = prompt("Total amount?");
+
+function calculateTotal() {
+    if (luckyNumber == 0) {
+        return(luckyNumber + "? Sorry but you did not win a discount. Now please pay $" + total.);
+    } else if (luckyNumber == 1) {
+        return("You got a 1. Your total before the discount was $" + total + " and is now $" + total * .90);
+    } else if (luckyNumber == 2) {
+        return("You got a 2. Your total before the discount was $" + total + " and is now $" +total * .75);
+    } else if (luckyNumber == 3) {
+        return("You got a 3. Your total before the discount was $" + total + " and is now $" +total * .65);
+    } else if (luckyNumber == 4) {
+        return("You got a 4. Your total before the discount was $" + total + " and is now $" +total * .50);
+    } else if (luckyNumber == 5) {
+        return("A 5! Congratulation on winning! Your total before the discount was $" + total + " and now Everything you purchased is free! ");
+    } else {
+        return ("I will need to contact support real quick...");
+    }
+}
+console.log(calculateTotal(luckyNumber));
