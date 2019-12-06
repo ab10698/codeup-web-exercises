@@ -81,6 +81,18 @@
     // console.log(seeYouLater("alligator"))
     // console.log(seeYouLater("crocodile"))
     // console.log(seeYouLater("dog"))
+
+//    write a js function that recieves another function as a parameter and executes it
+//    then call the function, and pass in an anonymous function as an argument
+
+
+function outerFunction(callbackFunction) {
+    callbackFunction();
+}
+outerFunction(function() {
+       alert("it works!");
+    });
+
 </script>
 </body>
 </html>
