@@ -22,9 +22,10 @@
      * accessing each element's index.
      */
 
-    // names.forEach(function(name, i, arr) {
-    //     console.log(name)
-    // });
+    // console.log(names[0]);
+    // console.log(names[1]);
+    // console.log(names[2]);
+    // console.log(names[3]);
 
     /**
      * TODO:
@@ -40,6 +41,10 @@
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
+
+    // names.forEach(function(name) {
+    //     console.log(name)
+    // });
 
     /**
      * TODO:
