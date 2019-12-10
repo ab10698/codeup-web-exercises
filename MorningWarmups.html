@@ -86,12 +86,25 @@
 //    then call the function, and pass in an anonymous function as an argument
 
 
-function outerFunction(callbackFunction) {
-    callbackFunction();
-}
-outerFunction(function() {
-       alert("it works!");
-    });
+// function outerFunction(callbackFunction) {
+//     callbackFunction();
+// }
+// outerFunction(function() {
+//        alert("it works!");
+//     });
+//     var param = 3;
+//    var ray = [3, 2, 8, 1];
+    function contains(ray, param) {
+       // return ray.includes(param); <----- quick way
+        for (var i = 0; i < ray.length; i++){
+            if (ray[i] === param) {
+                return true;
+            }
+        }
+        return false;
+    }
+    // console.log(contains([1,2,3], 4));
+    // console.log(contains([1,2,3], 3));
 
 </script>
 </body>
