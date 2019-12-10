@@ -10,14 +10,14 @@
      * planetsArray.
      * console.log planetsArray to check your work
      */
-    var planetsArray = planetsString.split("|");
+     planetsArray = planetsString.split("|");
 
     console.log(planetsArray);
 
     /**
      * TODO:
      * Create a string with <br> tags between each planet. console.log() your
-     * results. Why might this be useful? for loop use of an array.
+     * results. Why might this be useful? for html.
      *
      *
      * BONUS:
@@ -26,13 +26,15 @@
      * string, and <li> tags around each planet.
      */
 
-    var planetsString = planetsArray.join(" <br> ");
+     planetsString = planetsArray.join(" <br> ");
     console.log(planetsString);
 
     // var planetsList = planetsArray.join(" <li> ");
     // console.log(planetsList);
 
-    function planetsList () {
-        var list = Arrays.asList(planetsArray);
-    }
+    var planetsUl = "<ul>";
+    planetsArray.forEach(function(planet) {
+        planetsUl += "<li>" + planet + "<li>";
+    })
+
 })();
