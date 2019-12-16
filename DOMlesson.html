@@ -24,6 +24,8 @@
 <!--    <li>Macbook Pro 16-inch</li>-->
 <!--    <li class="even">Valve Index</li>-->
 </ul>
+<button id="btn1">Click me :D</button>
+<button id="btn2">Why dont you just click me instead.</button>
 <script>
     console.log(document);
     var header = document.getElementById("header");
@@ -68,6 +70,24 @@
     // for (var i = 0; i < lis.length; i++){
     //     console.log(lis[i]);
     // }
+    var listener2 = function() {
+      var name = prompt("What is your name")
+        if (name === "Alex") {
+            alert("Wow! My name is Alex as well! you must be super cool.");
+        } else {
+             alert("That is an alright name I guess...");
+        }
+    };
+
+    var clicks = 0;
+    var listener = function () {
+        clicks++;
+        alert('You clicked the button ' + clicks + " times!");
+    };
+    var btn1 = document.getElementById('btn1');
+    btn1.addEventListener('click', listener, false);
+    var btn2 = document.getElementById('btn2');
+    btn2.addEventListener('click', listener2, false);
 
 </script>
 </body>
