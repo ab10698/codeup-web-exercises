@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <style>
+        .redBackground {
+            background-color: red;
+        }
+        .greenText {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+<h1 id="header">Happy Holidays</h1>
+<h3>Wish List</h3>
+<ul id="wish list">
+<!--    <a id="codeup" href="http"-->
+<!--    <li>Great Career</li>-->
+<!--    <li class="even">2 Front Teeth</li>-->
+<!--    <li>Oculus Quest</li>-->
+<!--    <li class="even">Nintendo Switch</li>-->
+<!--    <li>Macbook Pro 16-inch</li>-->
+<!--    <li class="even">Valve Index</li>-->
+</ul>
+<script>
+    console.log(document);
+    var header = document.getElementById("header");
+    console.log(header);
+
+    var thingIWant = ["Great Career","2 Front Teeth","Oculus Quest","Nintendo Switch","Macbook Pro 16-inch","Valve Index"];
+
+    var wishList = document.getElementById("wish list");
+    var htmlString = "";
+    for (var i = 0; i<thingIWant.length;i++){
+        // htmlString += "<li>" + thingIWant[i] + "</li>";
+        if (i % 2 !== 0)
+            htmlString += "<li class='even'>" + thingIWant[i] + "</li>";
+        else
+            htmlString += "<li class='odd'>" + thingIWant[i] + "</li>";
+    }
+    wishList.innerHTML = htmlString;
+    setTimeout(function(){
+      for (var i = 0; i<evens.length;i++){
+         evens[i].innerHTML = "Money";
+         console.log(evens[i].innerHTML);
+      }
+    },7000);
+
+    var odds = document.getElementsByClassName("odd");
+        for (var i = 0;i<odds.length;i++) {
+            odds[i].setAttribute("class", "odd redBackground greenText");
+        }
+
+    var evens = document.getElementsByClassName("even");
+    console.log("evens: " + evens);
+    // evens.forEach(function(even){
+    //    console.log(even);
+    // }); ^this wont work^
+    // for (var i = 0; i < evens.length; i++){
+        // console.log(evens[i]);
+        // evens[i].innerHTML = "<em>Money</em>"
+        // console.log(evens[i].innerHTML);
+    // }
+    // var lis = document.getElementsByTagName("li");
+    // console.log(lis);
+    // for (var i = 0; i < lis.length; i++){
+    //     console.log(lis[i]);
+    // }
+
+</script>
+</body>
+</html>
