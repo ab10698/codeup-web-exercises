@@ -63,25 +63,75 @@
     // pitchAlignment: "viewport"
 };
 
-    var marker = new mapboxgl.Marker(markerOptions)
-        .setLngLat([-84.5083, 34.194622])
-        .addTo(map);
 
-    var bistroC = new mapboxgl.Popup()
-        .setHTML("<h1>Bistro C</h1>" +
-            "A Small family owned bistro with a wide variety of meals for lunch and dinner.")
-        // .addTo(map)
+    var restaurants = [
+        {
+            name: "Bistro C",
+            coordinates: [-84.5083, 34.194622]
+        },
+        {
+            name: "Yoon Sushi",
+            coordinates: [-84.512115, 34.191881]
+        }
+    ];
+    var markers = [
+        {
+            name: "Bistro C",
+            coordinates: [-84.5083, 34.194622]
+        },
+        {
+            name: "Yoon Sushi",
+            coordinates: [-84.512115, 34.191881]
+        }
+    ];
 
-    var marker2 = new mapboxgl.Marker(markerOptions)
-        .setLngLat([-84.512115, 34.191881])
-        .addTo(map);
+    function rPopups(restaurantList){
+        restaurantList.forEach(function (restaurant) {
+            new mapboxgl.Popup()
+                .setLngLat(restaurant.coordinates)
+                .setHTML("<p>"+restaurant.name+"</p>")
+            // .addTo(map);
+            ;
+        })}
+    rPopups(restaurants);
 
-    var yoon = new mapboxgl.Popup()
-        .setHTML("<h1>Yoon Sushi</h1>" +
-            "A small family owned restraunt that specializes in maki, tempura, and other sushi and seafood")
+    function createPopup(marker){
+        var popup = new mapboxgl.Popup()
+            .setLngLat(marker.coordinates)
+            .setHTML("<h1>"+marker.name+"</h1>");
+        return popup;
+    }
 
-    marker.setPopup(bistroC);
-    marker2.setPopup(yoon);
+    function rMarkers(markerList){
+        markerList.forEach(function(marker){
+            var popup = createPopup(marker);
+            new mapboxgl.Marker(markerOptions)
+                .setLngLat(marker.coordinates)
+                .setPopup(popup)
+                .addTo(map)
+        })}
+    rMarkers(markers);
+
+
+    // var marker = new mapboxgl.Marker(markerOptions)
+    //     .setLngLat([-84.5083, 34.194622])
+    //     .addTo(map);
+    //
+    // var bistroC = new mapboxgl.Popup()
+    //     .setHTML("<h1>Bistro C</h1>" +
+    //         "A Small family owned bistro with a wide variety of meals for lunch and dinner.")
+    //     // .addTo(map)
+    //
+    // var marker2 = new mapboxgl.Marker(markerOptions)
+    //     .setLngLat([-84.512115, 34.191881])
+    //     .addTo(map);
+    //
+    // var yoon = new mapboxgl.Popup()
+    //     .setHTML("<h1>Yoon Sushi</h1>" +
+    //         "A small family owned restraunt that specializes in maki, tempura, and other sushi and seafood")
+    //
+    // marker.setPopup(bistroC);
+    // marker2.setPopup(yoon);
 
 
 </script>
