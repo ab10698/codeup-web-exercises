@@ -52,21 +52,21 @@ function reverseGeocode(coordinates, token) {
         });
 }
 
-mapboxgl.accessToken = mapboxToken;
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-streets-v11',
-    zoom: 15,
-    center: [-98.4916, 29.4252],
-    pitch: 5
-});
+// mapboxgl.accessToken = mapboxToken;
+// var map = new mapboxgl.Map({
+//     container: 'map',
+//     style: 'mapbox://styles/mapbox/satellite-streets-v11',
+//     zoom: 15,
+//     center: [-98.4916, 29.4252],
+//     pitch: 5
+// });
 
 // geocode("The White House",mapboxToken).then(function(result){
 // map.setCenter(result);
 // map.setZoom(20)
 // });
 
-reverseGeocode({lng:-98.4861, lat:29.4260},mapboxToken).then(function (result) {
-    console.log(result);
-    map.set
-});
+// reverseGeocode({lng:-98.4861, lat:29.4260},mapboxToken).then(function (result) {
+//     console.log(result);
+//     map.set
+// });
