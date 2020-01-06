@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery exercises</title>
+    <style>
+        .purple {
+            background-color: mediumpurple;
+            color: white;
+        }
+        .red {
+            background-color: #9e4157;
+            color:white;
+        }
+
+    </style>
+</head>
+<body>
+<h1>New Years Resolutions</h1>
+<ul>
+    <li class="not-important">Eat less food</li>
+    <li>Lose Weight</li>
+    <li class="important">get better sleep</li>
+    <li>be a nicer person</li>
+</ul>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    (function () {
+        "use strict";
+        $(document).ready(function(){
+        //    our jquery code here
+            alert("look, we are using jquery my dude!");
+
+
+            $(".important").addClass("purple");
+
+            $(".not-important").addClass("red");
+
+
+        });
+
+    }) ();
+
+    // $("#button").click(function() {
+    //    alert("You clicked the button");
+    // });
+
+
+</script>
+</body>
+</html>
