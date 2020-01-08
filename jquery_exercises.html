@@ -4,25 +4,37 @@
     <meta charset="UTF-8">
     <title>jquery exercises</title>
     <style>
-        .purple {
-            background-color: mediumpurple;
-            color: white;
+        #purple {
+            /*background-color: mediumpurple;*/
+            color: lightcoral;
         }
-        .red {
-            background-color: #9e4157;
-            color:white;
+        #red {
+            /*background-color: #9e4157;*/
+            color:mediumpurple;
+        }
+
+        .border {
+            border: 1px solid red;
+        }
+
+        .size {
+            font-size: 20px;
         }
 
     </style>
 </head>
 <body>
-<h1>New Years Resolutions</h1>
-<ul>
-    <li class="not-important">Eat less food</li>
-    <li>Lose Weight</li>
-    <li class="important">get better sleep</li>
-    <li>be a nicer person</li>
+<h1 class="codeup">New Years Resolutions</h1>
+<ul class="codeup">
+    <li id="red" class="big">Eat less food</li>
+    <li class="big">Lose Weight</li>
+    <li id="purple" class="big">get better sleep</li>
+    <li class="big">be a nicer person</li>
 </ul>
+
+<p class="codeup">Heyo, just adding in extra lines</p>
+
+
 <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
 <script>
     (function () {
@@ -32,9 +44,26 @@
             alert("look, we are using jquery my dude!");
 
 
-            $(".important").addClass("purple");
+            // $(".important").addClass("purple");
 
-            $(".not-important").addClass("red");
+            // $(".not-important").addClass("red");
+
+            $(".codeup").addClass("border");
+
+            $(".big").addClass("size");
+
+            $('.codeup').dblclick(function(e) {
+                alert('double clicked!');
+            });
+
+            $('.big').hover(
+                function() {
+                    $(this).css('background-color', 'black');
+                },
+                function() {
+                    $(this).css('background-color', '#FFF');
+                }
+            );
 
 
         });

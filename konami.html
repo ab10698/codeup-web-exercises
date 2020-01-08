@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+
+    <style>
+        body {
+            color: #444;
+            font: normal 16px Helvetica, Arial, sans-serif;
+            text-align: center;
+        }
+
+        .code {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .code span {
+            background: #cccccc; /* Old browsers */
+            background: -moz-linear-gradient(left,  #cccccc 0%, #eeeeee 50%, #cccccc 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%,#cccccc), color-stop(50%,#eeeeee), color-stop(100%,#cccccc)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(left,  #cccccc 0%,#eeeeee 50%,#cccccc 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(left,  #cccccc 0%,#eeeeee 50%,#cccccc 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(left,  #cccccc 0%,#eeeeee 50%,#cccccc 100%); /* IE10+ */
+            background: linear-gradient(to right,  #cccccc 0%,#eeeeee 50%,#cccccc 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cccccc', endColorstr='#cccccc',GradientType=1 ); /* IE6-9 */
+
+            box-shadow: 1px 0 0 #efefef inset, -1px 0 0 #efefef inset;
+            border: 1px solid #bbb;
+            border-bottom: 4px solid #aaa;
+            border-radius: 3px;
+            display: inline-block;
+            height: 24px;
+            padding: 5px;
+            margin: 0 1px;
+            text-align: center;
+            text-shadow: 0 1px 0 #fff;
+            width: 24px;
+
+        }
+            .codec{
+                background: url(img/Codec-image.png) no-repeat center center fixed;
+                background-size:cover;
+            }
+
+        .alert{
+            background: url(img/metal-gear-alert.jpg) no-repeat center center fixed;
+            background-size:cover;
+        }
+
+        .over{
+            background: url(img/metal_gear_over.png) no-repeat center center fixed;
+            background-size:cover;
+        }
+
+        .revolver{
+            background: url(img/revolver-ocelot-spin.gif) no-repeat center center fixed;
+            background-size:cover;
+        }
+
+    </style>
+</head>
+<body class="body">
+<h1>K---Code</h1>
+
+
+<p>
+    Hmmm, I wonder what these arrows could mean?<br>
+    maybe entering them in a specific order will do something?<br>
+    (Click on me when you are ready to start).
+</p>
+
+<p class="code">
+    <span>&uarr;</span>
+    <span>&uarr;</span>
+    <span>&darr;</span>
+    <span>&darr;</span>
+    <span>&larr;</span>
+    <span>&rarr;</span>
+    <span>&larr;</span>
+    <span>&rarr;</span>
+    <span>B</span>
+    <span>A</span>
+</p>
+
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    var audio = new Audio('codec.mp3');
+    var audioAlert = new Audio("tindeck_1.mp3");
+    var audioOver = new Audio("metalgearover.mp3")
+
+    $("p").click(function(){
+        $("p").fadeToggle();
+        $("h1").fadeToggle();
+        // $("#div3").fadeToggle(3000);
+    });
+
+    var global = {
+
+        konami: function() {
+            var konamikeys = [38,38,40,40,37,39,37,39,66,65],
+                started = false,
+                count = 0;
+
+            $(document).keydown(function(e){
+                var reset = function() {
+                    started = false;
+                    count = 0;
+                    return;
+                };
+
+                key = e.keyCode;
+
+                // Begins watching if first key in sequence was pressed.
+                if(!started){
+                    if(key === 38){
+                        started = true;
+                    }
+                }
+
+                // If  started, pay attention to key presses, looking for right sequence.
+                if (started){
+
+                    if (konamikeys[count] === key){
+                        count++;
+                    } else {
+                        // Incorrect key, restart.
+                        $('body').addClass("alert");
+                        audioAlert.play();
+                        // alert("I cant believe you messed it up...");
+                        reset();
+                    }
+                    if (count === 10){
+                        // Success!
+                        $('body').addClass("codec");
+                        audio.play();
+                        // alert('Konami code entered! gained 30 lives!');
+                        $(this).css("set");
+                        reset();
+                    }
+                } else {
+                    reset();
+                }
+            });
+        },
+
+        gameover: function() {
+            var overKeys = [71,65,77,69,79,86,69,82],
+                started = false,
+                count = 0;
+
+            $(document).keydown(function(b){
+                var reset = function() {
+                    started = false;
+                    count = 0;
+                    return;
+                };
+
+                key = b.keyCode;
+
+                // Begins watching if first key in sequence was pressed.
+                if(!started){
+                    if(key === 71){
+                        started = true;
+                    }
+                }
+
+                // If  started, pay attention to key presses, looking for right sequence.
+                if (started){
+
+                    if (overKeys[count] === key){
+                        count++;
+                    }
+                    if (count === 8){
+                        // Success!
+                        $('body').addClass("over");
+                        audioOver.play();
+                        // alert('Snake? Snake?! SNAKE!!!!');
+                        $(this).css("set");
+                        reset();
+                    }
+                } else {
+                    reset();
+                }
+            });
+        },
+
+        ocelot: function() {
+            var ocelotKeys = [79,67,69,76,79,84],
+                started = false,
+                count = 0;
+
+            $(document).keydown(function(c){
+                var reset = function() {
+                    started = false;
+                    count = 0;
+                    return;
+                };
+
+                key = c.keyCode;
+
+                // Begins watching if first key in sequence was pressed.
+                if(!started){
+                    if(key === 79){
+                        started = true;
+                    }
+                }
+
+                // If  started, pay attention to key presses, looking for right sequence.
+                if (started){
+
+                    if (ocelotKeys[count] === key){
+                        count++;
+                    }
+                    if (count === 6){
+                        // Success!
+                        $('.body').addClass("revolver");
+                        audioOver.play();
+                        $(this).css("set");
+                        reset();
+                    }
+                } else {
+                    reset();
+                }
+            });
+        }
+
+    };
+
+    global.konami();
+    global.gameover();
+    global.ocelot();
+
+</script>
+</body>
+</html>
