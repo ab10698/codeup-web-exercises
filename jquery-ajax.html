@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax work</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+<script>
+    $.ajax("https://pokeapi.co/api/v2/pokemon/3/")
+        .done(function(obj){
+            console.log(obj.name);
+            console.log(obj.abilities);
+            console.log(obj.stats);
+            console.log(obj.sprites);
+            $
+        })
+</script>
+</body>
+</html>

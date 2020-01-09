@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery FAQ</title>
+    <style>
+        .invisible {
+            visibility: hidden;
+        }
+
+        .invisible2 {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="Newsletter-body">
+    <h1 id="Newsletter">Would you like to sign up for our newsletter?</h1>
+    <span class="close">X</span>
+
+<hr>
+</div>
+
+
+<dl>
+    <dt>Lorem Park</dt>
+    <dd class="invisible">Something something, blah blah.</dd>
+
+    <dt>Ipsum Lake</dt>
+    <dd class="invisible">.halb halb, gnihtemos gnihtemoS</dd>
+
+    <dt>Computer Park</dt>
+    <dd class="invisible">Look at all those Gateways...</dd>
+
+    <dt>Boiler Plate</dt>
+    <dd class="invisible">This might be a bit plain...</dd>
+
+    <dt>Schmear Geyser</dt>
+    <dd class="invisible">Get your bagels, my dudes.</dd>
+
+    <dt>Dab On 'Em Cliff</dt>
+    <dd class="invisible">Cam Newton's fault, probably.</dd>
+
+    <dt>Astrodome</dt>
+    <dd class="invisible">Houston baseball park.</dd>
+
+    <dt>Texas Cyclone</dt>
+    <dd class="invisible">Was a cool roller coaster.</dd>
+
+    <dt>My Aunt Pam's House</dt>
+    <dd class="invisible">They have a pomeranian.</dd>
+
+    <dt>Jellystone National Park</dt>
+    <dd class="invisible">Yogi lives there.</dd>
+</dl>
+
+<button id="styler">Click to change some things!</button>
+
+<h2 class="invisible2">Please register for our site!</h2>
+
+<h3>Ge Park</h3>
+<ul class="parks">
+    <li>Ge</li>
+    <li>ge</li>
+    <li>Ge~</li>
+    <li>Ge?</li>
+</ul>
+<h3>He Park</h3>
+<ul class="parks">
+    <li>He</li>
+    <li>he</li>
+    <li>He~</li>
+    <li>He?</li>
+</ul>
+<h3>Ye Park</h3>
+<ul class="parks">
+    <li>Ye</li>
+    <li>ye</li>
+    <li>Ye~</li>
+    <li>Ye?</li>
+</ul>
+
+<button id="styledOn">Click to change some things!</button>
+
+<script
+        src="https://code.jquery.com/jquery-2.2.4.js">
+</script>
+
+<script>
+    $('#styler').click(function(e) {
+        e.preventDefault();
+        $("dd").toggleClass("invisible");
+    });
+    $("dt").click(function() {
+        $(this).css("background-color", "yellow");
+    })
+
+    $('#styledOn').click(function(e) {
+        e.preventDefault();
+        $('.parks > li:last-child').css('background-color', 'yellow');
+    });
+
+    // $('h3').click(function(e){
+    //     $('li').css('font-weight', 'bold');
+    // });
+
+    $('li').click(function(e){
+        $('.parks > li:first-child').css('color', 'blue');
+    });
+
+    $('.close').click(function(e){
+        $('#Newsletter-body').hide();
+    });
+
+
+    $(function() {  //once the document is ready
+        $('h3').next() //select all ul following the h3
+            // .find('li')  //select all contained li
+            .hide();
+
+
+    });
+
+    $('h3').click(function(e) {
+        $(this).next().slideToggle();
+    });
+
+    $(function() {
+        $('h2').delay(8000).fadeIn(1000).removeClass('invisible');
+    });
+
+
+</script>
+
+</body>
+</html>
