@@ -1,5 +1,5 @@
     .idea/*
     *.iml
     .DS_STORE
-    JS/keys.js
-    JS/keys2.js
+    js/keys.js
+    js/keys2.js
