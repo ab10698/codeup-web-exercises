@@ -2,9 +2,160 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dark Weather project</title>
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.css' rel='stylesheet' />
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+
+        #map {
+            /* the width and height may be set to any size */
+            width: 100%;
+            height: 400px;
+        }
+
+
+        .spinner {
+
+        }
+
+    </style>
+
+
 </head>
 <body>
+<h1>Weather Time!</h1>
+<div class="row col-12">
+    <div id="insertDataCurrent" class="card col-4" >
+        <img class="spinner" src="img/loading-gif.gif">
+    </div>
+
+
+    <div id="insertDataTommorow" class="card col-4" >
+        <img class="spinner" src="img/loading-gif.gif">
+    </div>
+
+    <div id="insertDataNext" class="card col-4" >
+        <img class="spinner" src="img/loading-gif.gif">
+    </div>
+
+<!--    <form action="">-->
+<!--    <input id="address" type="text" placeholder="Enter a location, or address">-->
+<!--    <button id="submit" type="button" class="btn btn-dark">Submit</button>-->
+
+<!--    </form>-->
+
+    <div id='map'></div>
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="js/keys2.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.6.0/mapbox-gl.js'></script>
+
+<script>
+    function Updater(long, lat) {
+        $.ajax("https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/" + darkskyToken + "/" + long + "," + lat).done(function (data) {
+            console.log(data);
+            var dateObject = new Date(data.currently.time * 1000);
+            console.log(dateObject.toString());
+
+
+            $('.spinner').toggle();
+
+            $('#insertDataCurrent').html('<p>' + "Today's Weather" + '</p>'
+                + '<p>' + data.daily.data[0].summary + '</p>' +
+                '<p>The Temperature high will be:</p> ' +
+                '<p>' + data.daily.data[0].temperatureHigh + '</p>');
+
+
+            $('#insertDataTommorow').html('<p>' + "Tommorow's Weather" + '</p>'
+                + '<p>' + data.daily.data[1].summary + '</p>' +
+                '<p>The Temperature high will be:</p> ' +
+                '<p>' + data.daily.data[1].temperatureHigh + '</p>');
+
+
+            $('#insertDataNext').html('<p>' + "Weather after tommorow" + '</p>'
+                + '<p>' + data.daily.data[2].summary + '</p>' +
+                '<p>The Temperature high will be:</p> ' +
+                '<p>' + data.daily.data[2].temperatureHigh + '</p>');
+
+
+        });
+    }
+    Updater(29.4252,-98.4916);
+        mapboxgl.accessToken = mapboxToken;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/satellite-streets-v11',
+            zoom: 10
+            // center: [-98.4916, 29.4252]
+            // pitch: 5
+
+        });
+
+        function geocode(search, token) {
+            var baseUrl = 'https://api.mapbox.com';
+            var endPoint = '/geocoding/v5/mapbox.places/';
+            return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
+                .then(function (res) {
+                    return res.json();
+                    // to get all the data from the request, comment out the following three lines...
+                }).then(function (data) {
+                    return data.features[0].center;
+                });
+        }
+
+        userPlace = prompt("Please enter a location to look up");
+       // var userPlace =  $('#submit').click(function(e){
+       //
+       //  })
+        // var userPlace = prompt('enter a location');
+        // geocode("130 Prominence Point Pkwy, Canton, GA 30114",mapboxToken).then(function(result){
+        // // map.setCenter(result);
+        // // map.setZoom(15);
+        //     console.log(result);
+        // });
+
+        var markerOptions = {
+            color: "purple",
+            draggable: true
+            // pitchAlignment: "viewport"
+        };
+        var marker = new mapboxgl.Marker(markerOptions)
+            .setLngLat([-98.4936, 29.4241])
+            .addTo(map);
+
+
+        geocode(userPlace, mapboxToken).then(function (result) {
+            marker.setLngLat(result);
+            map.setCenter(result);
+            map.setZoom(8);
+            console.log(result);
+
+        });
+
+        // function onDragEnd() {
+        //     var lngLat = marker.getLngLat();
+        //     coordinates.style.display = 'block';
+        //     coordinates.innerHTML =
+        //         'Longitude: ' + lngLat.lng + '<br />Latitude: ' + lngLat.lat;
+        // }
+        marker.on('dragend', (function () {
+            var LngLat = marker.getLngLat();
+            console.log(LngLat);
+            Updater(LngLat.lat, LngLat.lng)
+        }));
+
+
+
+</script>
 
 </body>
 </html>
