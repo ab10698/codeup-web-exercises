@@ -5,20 +5,20 @@
 body {
     width: 100%;
     margin: 0 auto;
-    background: #162041;
+    background: url(../img/animated-forest.gif) no-repeat center center fixed;
+    background-size: cover;
+}
 
-}
-.background-image{
-    background: url(img/metal-gear-alert.jpg) no-repeat center center fixed;
-}
 
 .field {
+    display:flex;
     opacity: 1.0;
     width: 150px;
     height: 150px;
     float: left;
     margin-top: 20px;
     margin-left: 25%;
+    margin-right: 20px;
     border-radius: 15px;
     transition: 0.4s;
 }
@@ -38,29 +38,34 @@ body {
 }
 
 .red {
-    background: #941813
+    background: #941813;
+    border: 3px solid white;
 }
 
 .blue {
-    background: #5072EB
+    background: #5072EB;
+    border: 3px solid white;
 }
 
 .yellow {
-    background: #FFAA00
+    background: #FFAA00;
+    border: 3px solid white;
 }
 
 .green {
-    background: #30683B
+    background: #30683B;
+    border: 3px solid white;
 }
 
 .bar {
-    margin-top: 50px;
+    opacity:0.7;
+    margin-top: 100px;
     width: 100%;
     height: 30px;
     float: left;
     background: #FFAA00;
     border-radius: 2px;
-    color: #737F7E;
+    color: #FBFAE6;
     font-weight: bold;
     line-height: 30px;
     text-align: center;
@@ -81,6 +86,7 @@ button {
     text-align: center;
     border: 0;
     transition: 0.3s;
+
 }
 
 button:active, button:disabled {
@@ -90,10 +96,11 @@ button:active, button:disabled {
 
 
 h1 {
+    opacity: 0.7;
     text-align: center;
     font-size: 42px;
     background-color: #FFAA00;
-    color: #737F7E;
+    color: #FBFAE6;
 }
 
 .buttons {

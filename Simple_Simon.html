@@ -5,32 +5,33 @@
     <title>Simple Simon</title>
     <link rel="stylesheet" href="css/Simon.css">
 </head>
-<body onload="">
+<body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
 <header><h1>Simple Simon Game</h1></header>
-
-<div class="field red"></div>
-<div class="field blue"></div>
-<div class="field yellow"></div>
-<div class="field green"></div>
-<div class="bar" id="info">
-    Feel free to start at any time!
+<div class="">
+    <div class="field red"></div>
+    <div class="field blue"></div>
+    <div class="field yellow"></div>
+    <div class="field green"></div>
+    <div class="bar" id="info">
+        Feel free to start at any time!
+    </div>
 </div>
 <div class="buttons">
     <button id="start">start</button>
     <button id="reset">reset</button>
-    <button id="music">press this if you want some calming music</button>
+    <button id="music">music?</button>
     <button id="strict">Baby mode engaged...</button>
 </div>
 
 
 <script>
-    var music = new Audio('stickerbrush-symphony.mp3')
+    var music = new Audio('stickerbrush.mp3')
     var sounds = [
-        new Audio('codec.mp3'),
-        new Audio('codec.mp3'),
-        new Audio('codec.mp3'),
+        new Audio('street-fighter-coin.mp3'),
+        new Audio('fighter-choose.mp3'),
+        new Audio('fighter-selecting.mp3'),
         new Audio('codec.mp3')
     ];
 
@@ -44,6 +45,8 @@
     var currentStep = 0;
     var timeout;
     var strict = false;
+
+
     var fields = document.querySelectorAll('.field');
     var info = document.querySelector('#info');
     var startButton = document.querySelector('#start');
@@ -84,7 +87,7 @@
                     else {
                         currentStep = 0;
                         inputEnabled = false;
-                        info.innerHTML = "Pay attention, or you might just mess up!";
+                        info.innerHTML = "Pay attention, or you might just mess up again!";
                         timeout = setTimeout(showSteps, 2000);
                     }
                 }, 2000);

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ES6</title>
+</head>
+<body>
+<h1>learning about ECMAScript2016</h1>
+
+<script>
+    for(let i = 0; i<16; i++)
+        console.log(2 ** i);
+
+    function explore(){
+        var a;
+        console.log(a);
+        console.log(b);
+         a = 1;
+        let b = 2;
+    }
+    explore();
+
+
+    const ourFunction = function(name){
+        console.log(`hello ${name}!`)
+    }
+    ourFunction("Europa");
+
+    const newFunction = (name) => {
+        console.log(`hello ${name}!`)
+    }
+    newFunction("Europa");
+</script>
+</body>
+</html>
