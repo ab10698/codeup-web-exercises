@@ -160,6 +160,14 @@
     }
     // console.log(averageHeight(hamsters));
 
+    let isAnagram= (string1, string2) => {
+        return string1.toLowerCase().split("").sort().join("") === string2.toLowerCase().split("").sort().join("")
+    }
+
+    console.log(isAnagram("listen", "silent"));
+    console.log(isAnagram("hog", "pog"));
+    console.log(isAnagram("dog", "god"));
+
 
 
 
