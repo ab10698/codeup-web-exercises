@@ -213,6 +213,20 @@
     // console.log(remainder(10, 5));
     // console.log(remainder(36, 9));
 
+    //Check if One Array can be Nested in Another
+    //Create a function that returns true if the first array can be nested inside the second.
+
+    //arr1 can be nested inside arr2 if:
+
+    //arr1's min is greater than arr2's min.
+    //arr1's max is less than arr2's max.
+
+    function canNest(arr1, arr2) {
+        return Math.min(...arr1) > Math.min(...arr2) && Math.max(...arr1) < Math.max(...arr2);
+    }
+
+    // console.log(canNest([20,10],[10,5]));
+
 </script>
 
 <script>
