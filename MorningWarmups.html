@@ -235,8 +235,16 @@
         return (q * 0.25 + d * 0.1 + n * 0.05 + p * 0.01) >= amountDue
     }
 
-    console.log(changeEnough([0, 0, 20, 5], 0.75));
-    console.log(changeEnough([0, 0, 0, 4], 0.05));
+    // console.log(changeEnough([0, 0, 20, 5], 0.75));
+    // console.log(changeEnough([0, 0, 0, 4], 0.05));
+
+
+    //Create a function that concatenates n input arrays, where n is variable.
+    function concat(...args) {
+        return [].concat.apply([], args);
+    }
+
+    // console.log(concat([1, 2], [3, 4]));
 
 </script>
 
