@@ -11,3 +11,13 @@ body {
     min-height: 100vh;
     background: #091921;
 }
+
+.clock {
+    width: 350px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../img/clock.png);
+    background-size: cover;
+}
