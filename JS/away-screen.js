@@ -2,6 +2,7 @@ var canvas = document.getElementById("canvas");
 var c = canvas.getContext("2d");
 var tx = window.innerWidth;
 var ty = window.innerHeight;
+var audio = new Audio('space-ambience.mp3');
 canvas.width = tx;
 canvas.height = ty;
 
